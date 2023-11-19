@@ -4,7 +4,7 @@ import '../../../../domain/entities/dictionary_entitie.dart';
 import '../../../../errors/failure.dart';
 import '../../../../provider/app_provider.dart';
 
-final wordsDictionary =
+final wordsDictionaryFuture =
     FutureProvider<Either<Failure, WordsDictionaryModelEntitie>>((ref) {
-  return ref.watch(getWordsDictionaryUsecase).getWordDictionary();
+  return ref.watch(AppProviders.getWordsDictionaryUsecase).getWordDictionary();
 });
