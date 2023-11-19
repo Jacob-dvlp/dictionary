@@ -35,7 +35,7 @@ class AppDependeciesHome {
         getWordDictionaryDatasource: getIt.get(),
       ),
     );
-
+ 
     //usecase
     getIt.registerLazySingleton<GetWordDictionaryUsecase>(
       () => GetWordDictionaryUsecaseImp(
