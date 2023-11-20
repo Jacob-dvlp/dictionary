@@ -1,13 +1,14 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:dictionary_app/src/helper/message_custom.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../domain/entities/infor_to_word_entitie.dart';
 import '../details_word_widget.dart';
 import 'custom_card_details_widget.dart';
 import 'custom_list_definition_word.dart';
 
-class ListViewBuilderItens extends StatelessWidget {
+class ListViewBuilderItens extends ConsumerWidget {
   const ListViewBuilderItens({
     super.key,
     required this.inforToWordEntitie,
@@ -19,14 +20,14 @@ class ListViewBuilderItens extends StatelessWidget {
   });
 
   final InforToWordEntitie inforToWordEntitie;
-  final DetailsWordWidget widget;
+  final DetailsWordWidgetR widget;
   final Duration duration;
   final Duration position;
   final AudioPlayer audioPlayer;
   final bool isPlaying;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,ref) {
     return SizedBox(
       width: MediaQuery.of(context).size.longestSide / 2.2,
       child: Column(

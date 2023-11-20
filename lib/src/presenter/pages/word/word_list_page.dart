@@ -2,21 +2,19 @@
 
 import 'package:dictionary_app/src/presenter/pages/word/controllers/words_dictionary.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../../domain/entities/word_dictionary_entitie.dart';
 
 import '../widgets/custom_card_widget.dart';
-import 'controllers/words_dictionary_cubit.dart';
 
 class WordList extends ConsumerWidget {
   const WordList({super.key});
 
   @override
   Widget build(BuildContext context, ref) {
-    final data = ref.watch(wordsDictionary);
+    final data = ref.watch(wordsDictionaryFuture);
     return data.when(
       data: (data) {
         final list = data.fold((l) => null, (r) => r);

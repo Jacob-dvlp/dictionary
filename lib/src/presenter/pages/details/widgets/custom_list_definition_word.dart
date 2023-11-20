@@ -1,9 +1,10 @@
 import 'package:dictionary_app/utils/extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../domain/entities/infor_to_word_entitie.dart';
 
-class CustomListDefinitionWord extends StatelessWidget {
+class CustomListDefinitionWord extends ConsumerWidget {
   const CustomListDefinitionWord({
     super.key,
     required this.inforToWordEntitie,
@@ -12,7 +13,7 @@ class CustomListDefinitionWord extends StatelessWidget {
   final InforToWordEntitie inforToWordEntitie;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,ref) {
     return SizedBox(
       width: 600,
       child: ListView.builder(
