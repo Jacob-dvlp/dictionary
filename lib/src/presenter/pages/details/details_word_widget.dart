@@ -6,11 +6,9 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:dictionary_app/src/presenter/pages/details/controller/get_info_word.dart';
 import 'package:dictionary_app/utils/extensions.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../domain/entities/infor_to_word_entitie.dart';
-import 'controller/details_cubit.dart';
 import 'widgets/custom_elevatedbutton_details_widget.dart';
 import 'widgets/custom_list_view_builder.dart';
 
@@ -77,16 +75,9 @@ class _DetailsWordWidgetRState extends ConsumerState<DetailsWordWidgetR> {
       body: Consumer(
         builder: (context, ref, child) {
           final data = ref
-              .watch(getInfoWordProviderFuture(ref: ref, value: widget.word));
+              .watch(getInfoWordProviderFuture.call(widget.word));
           return data.when(
-            error: (error, stackTrace) => Center(
-              child: Text(error.toString()),
-            ),
-            loading: () {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            },
+           
             data: (data) {
               final word = data.fold((l) => null, (r) => r);
 
@@ -113,6 +104,15 @@ class _DetailsWordWidgetRState extends ConsumerState<DetailsWordWidgetR> {
                   ),
                   controllerListView()
                 ],
+              );
+              
+            },
+             error: (error, stackTrace) => Center(
+              child: Text(error.toString()),
+            ),
+            loading: () {
+              return const Center(
+                child: CircularProgressIndicator(),
               );
             },
           );

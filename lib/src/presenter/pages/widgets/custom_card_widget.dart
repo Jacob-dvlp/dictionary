@@ -6,8 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../../helper/message_custom.dart';
-import '../details/controller/details_cubit.dart';
-import '../details/controller/get_info_word.dart';
 import '../details/details_word_widget.dart';
 
 class CustomHistoryAndFavoritWiget extends ConsumerWidget {

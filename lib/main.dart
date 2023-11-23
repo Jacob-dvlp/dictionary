@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'app_widget.dart';
-import 'src/core/dependecies/getit_setup.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

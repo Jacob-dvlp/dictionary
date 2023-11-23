@@ -1,13 +1,11 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../domain/entities/infor_to_word_entitie.dart';
-import '../../../../errors/failure.dart';
-import '../../../../provider/app_provider.dart';
 
-FutureProvider<Either<Failure, List<InforToWordEntitie>>>
-    getInfoWordProviderFuture({ref, String? value}) => FutureProvider((ref){
+import '../../../../core/provider/app_provider.dart';
 
-      return  ref.watch(AppProviders.getInfoWord).getInforWord(word: value!);
-    });
 
+
+final getInfoWordProviderFuture = FutureProviderFamily((ref, arg) {
+  String convertObjToString = arg as String;
+  return ref.watch(AppProviders.getInfoWord).getInforWord(word: convertObjToString);
+});
