@@ -57,8 +57,7 @@
 ⚙ bloc_flutter<br>  
 ⚙ equatable <br>
 ⚙ dartz <br>
-⚙ get_it<br>
-⚙ bloc <br>
+⚙ riverpod <br>
 ⚙ dio <br>
 ⚙ hive_flutter <br>
 ⚙ audioplayers <br>
